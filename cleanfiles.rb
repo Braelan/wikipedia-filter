@@ -1,25 +1,34 @@
 require 'rubygems'
 require 'nokogiri'
 
-def writeFile(textfile, item)
-    wiki = File.open('/media/braelan/302F-6E98/training/dataframeSetupNorm/' + item, 'r')
+def writeFile(textfile, directory, item)
+    wiki = File.open(directory + '/' + item, 'r')
     nokowiki =  Nokogiri::HTML(wiki)
     textfile.write(nokowiki.css('#mw-content-text')[0].text)
 end
 
-def writeTextFiles
-    n = 1
-
-
-    Dir.foreach('/media/braelan/302F-6E98/training/dataframeSetupNorm') do |item|
+def writeTextFiles(directory)
+    dir = 0
+    Dir.foreach(directory) do |item|
       next if item == '.'  || item == ".."
-      outputText = File.open('/media/braelan/302F-6E98/training/dfsetupNormtext/' + 'clean'+ item + '.txt', 'w')
 
-      if n < 10
-        writeFile(outputText, item)
+      n = rand * 10
+      if n < 3
+        outputText = File.open(directory + 'test' + 'text/' + 'clean'+ item + '.txt', 'w')
+      else
+        outputText = File.open(directory + 'text/' + 'clean' + item + '.txt', 'w')
       end
-      n = n + 1
+
+        writeFile(outputText, directory, item)
+
+        dir = dir + 1
+        if dir > 500
+          return true
+        end
+
+
     end
 end
 
-writeTextFiles()
+
+writeTextFiles('/media/braelan/302F-6E98/training/positive')
