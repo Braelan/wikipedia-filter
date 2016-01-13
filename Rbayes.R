@@ -17,7 +17,9 @@ cleanCorpus <- function(directory) {
   return( tm_map(normCloud, stemDocument))
 }
 
+
 #make a document term matrices showing word frequency for negatives, positives, and a test set
+#***THESE DIRECTORIES MUST BE EDITED***
 raw_negatives <- cleanCorpus("/media/braelan/302F-6E98/training/negativetext/")
 meta(raw_negatives, "disease") <- "no"
 negative_dtm <-DocumentTermMatrix(raw_negatives)
