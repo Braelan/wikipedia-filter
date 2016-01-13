@@ -10,10 +10,6 @@ article = open(file_name, 'r')
 
 lines = article.read()
 
-answer = lines.find("International_Statistical_Classification_of_Diseases_and_Related_Health_Problems")
+# answer = lines.find("International_Statistical_Classification_of_Diseases_and_Related_Health_Problems")
 
-if answer != -1:
-    print( returnTitle(lines))
-    print("this is a disease article")
-else:
-    print("not a disease article")
+print( returnTitle(lines))
