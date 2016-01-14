@@ -1,6 +1,7 @@
+Hi Mark,
+  Thanks again for checking out my solution.
 
-
-  This is an improvement on a the Python benchmark and detects disease related articles
+  This is an improvement on the Python benchmark and detects disease related articles
   in the dataset with a specificity of 99% and a sensitivity of 91%.  This is based on a random sample
   of 500 articles (to accomodate my hardware in a run time < 10 minutes).
 
